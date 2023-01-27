@@ -1,0 +1,17 @@
+.modal{
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex !important;
+    width: 25% !important;
+    height: 30% !important;
+    top: 15% !important;
+    left: 2.5% !important;
+    background:white;
+    border: solid 1px black;
+    border-radius: 9px;
+    z-index: 9;
+}.modal:hover{
+    cursor: default;
+}

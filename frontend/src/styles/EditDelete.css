@@ -1,0 +1,6 @@
+.taches-item-logo{
+    height: 20px;
+    width: 20px;
+}.taches-item-logo:hover{
+    cursor: pointer;
+} 

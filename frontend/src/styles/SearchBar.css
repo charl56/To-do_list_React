@@ -1,0 +1,21 @@
+.tdl-search-bar {
+	background-color: white;
+	border-radius: 9px;
+	width: 40%;
+	margin: auto;
+	margin-bottom: 50px;
+	height: auto;
+}
+
+.tdl-search-bar-elem {
+	margin-bottom: 10px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.tdl-search-bar-input{
+	border: solid 0px;
+	border-bottom: solid 1px black;
+	width: 100%;
+	padding: 5px;
+}

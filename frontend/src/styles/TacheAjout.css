@@ -1,0 +1,10 @@
+.tache-ajout{
+    text-align: left;
+    padding: 0;
+    align-content: left;
+    display: flex;
+    width: auto;
+    
+}.tache-ajout:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.taches-item-row{
+    margin: 20px 10px;
+    padding-top: 15px;
+}
+
+.taches-item-col-1{
+    padding-left: 0 !important;
+}
+
+.tache-item-etat{
+    border-radius: 10px;
+    text-align: center;
+}.to-do{
+    background-color: #56ccf2;
+}.ongoing{
+    background-color: #f2c94c;
+}.done{
+    background-color: #6fcf97;
+}.late{
+    background-color: #eb5757;
+}
+

@@ -1,0 +1,13 @@
+.tdl-taches{
+	background-color: white;
+	border-radius: 9px;
+	width: 40%;
+	margin: auto;
+	height: auto;
+    border: solid 1px black;
+    padding: 10px 50px 10px 50px;
+}
+
+.tdl-taches-list-title{
+    border-bottom: solid 2px black;
+}
