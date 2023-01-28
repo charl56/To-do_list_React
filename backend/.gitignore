@@ -3,3 +3,6 @@
 # Python venv
 /env
 __pycache__/
+
+.log.py
+yarn.lock
