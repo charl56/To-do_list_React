@@ -19,6 +19,8 @@ cd To-do_List_React
 
 
 ## Database
+
+#ENLEVER MOT DE PASSE DANS LOG.PY
 ### Set user and password
 ```
 file \backend\log.py

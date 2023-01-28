@@ -1,7 +1,7 @@
 import mysql.connector
 
 
-def login_database():
+def login_database(): 
     try:
         conn = mysql.connector.connect(
             host="localhost",
