@@ -1,10 +1,92 @@
-# Getting Started with Create React App
+# To-do list 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Versions
+```
+Python 3.11.1
+pip 22.3.1 
+MariaDB 10.6.5
+npm 9.1.2
+yarn 1.22.19
+```
 
-## Available Scripts
 
-In the project directory, you can run:
+
+## Pull and clone repository
+```
+git clone https://github.com/charl56/To-do_list_React.git
+cd To-do_List_React
+```
+
+
+## Database
+### Set user and password
+```
+file \backend\log.py
+
+user=your_username,
+password=your_password,
+```
+
+
+### Create database
+```
+Importer les créations, donnnées.. manuellement.
+Sinon pas possible de se connecter a la database apptaches si elle existe pas(backend/log.py)
+Tester connection sans (database="apptaches") log.login_database()
+```
+
+
+## Backend
+#### Port : 5001
+### Create venv
+```
+cd backend
+python -m venv env
+```
+### Activate on :
+```
+Unix bash shell: source /env/bin/activate
+Unix fish shell: source /env/bin/activate.fish
+Windows Command Prompt: \env\Scripts\activate.bat
+Windows PowerShell: path\to\venv\Scripts\Activate.ps1
+unix
+```
+### Install dependencies 
+```
+pip install -r requirements.txt
+```
+### Launch backend
+```
+python app.py
+```
+
+
+
+## Frontend
+#### Ports : 3001
+### Go to frontend directory
+```
+cd ..
+cd /frontend
+```
+### Install dependencies
+```
+yarn install
+```
+
+### Launch frontend
+```
+yarn start
+```
+
+
+
+
+
+
+
+
+
 
 ### `npm start`
 

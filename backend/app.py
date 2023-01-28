@@ -13,6 +13,42 @@ app.config.from_object(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
+def initDb():
+    try:
+        # Connection bdd
+        conn = login_database()
+        cursor = conn.cursor()
+
+        requete_sql = '''
+        CREATE DATABASE IF NOT EXISTS apptaches;
+        USE apptaches;
+        CREATE TABLE IF NOT EXISTS tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));
+        INSERT INTO tacheListes (name, state) VALUES
+        ('Faire liste courses', 'Fait'),
+        ('Acheter les courses', 'En cours'),
+        ('Ranger courses', 'En retard'),
+        ('RDV', 'En retard');
+        '''
+        cursor.execute(requete_sql)
+        
+        # cursor.execute("SHOW DATABASES")
+        # database = ""
+        # for x in cursor:
+        #     if(str(database) == "('apptaches',)"){
+        #         database = x
+        #     }
+        #     print("('apptaches',)")
+            
+        
+        conn.commit()    
+        cursor.close()
+
+
+        print("DB init ok")
+
+    except Exception as e:
+        print("error: ", str(e))
+
 # Route pour récupérer toutes les tâches dans la BDD
 @app.route('/getTachesListe', methods=['GET'])
 def getTachesListe():
@@ -108,6 +144,9 @@ def EditTache():
         return "error: " + str(e)
 
 if __name__ == '__main__':
+
+
+    initDb()
 
     # Adresse ip pour lancer en local
     app.run(host='127.0.0.1', port=5001, debug=True)

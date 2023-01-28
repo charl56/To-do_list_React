@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS apptaches;
 USE apptaches;
 
 -- Create table in database
-CREATE TABLE tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));
+CREATE TABLE IF NOT EXISTS tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));
 
 -- Set value into table
 INSERT INTO tacheListes (name, state) VALUES

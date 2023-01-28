@@ -5,8 +5,8 @@ def login_database():
     try:
         conn = mysql.connector.connect(
             host="localhost",
-            user="root",
-            password="root",
+            user="",
+            password="",
             database="apptaches"
         )
         return conn
