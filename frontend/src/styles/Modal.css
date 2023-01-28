@@ -15,3 +15,21 @@
 }.modal:hover{
     cursor: default;
 }
+
+
+.name{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btn{
+    margin: 10px;
+}
+.btn-add{
+    background-color: #6fcf97 !important;
+}.btn-cancel{
+    background-color: #f2c94c !important;
+}.btn-delete{
+    background-color: #eb5757 !important;
+}

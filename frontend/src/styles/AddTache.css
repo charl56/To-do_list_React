@@ -1,0 +1,22 @@
+.add-tache-div{
+    text-align: left;
+    padding: 0;
+    align-content: left;
+    display: flex;
+    width: auto;
+    /* position: absolute; */
+    flex-direction: row;
+    /* justify-content: left; */
+    align-items: flex-start;
+    /* display: flex !important; */
+
+}.add-tache-div:hover{
+    cursor: default;
+}
+
+.add-tache-icon{
+    height: auto;
+    width: 20px;
+}.add-tache-icon:hover{
+    cursor: pointer;
+}

@@ -2,7 +2,7 @@
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
 import addIcon from '../../assets/add.png'
-import '../../styles/TacheAjout.css'
+import '../../styles/AddTache.css'
 import React, { useState } from 'react';
 import Modal from '../../Modal/Modal'
 
@@ -17,8 +17,8 @@ function TacheAjout() {
 
 
 	return (
-		<div className='tache-ajout' >
-            <img src={addIcon}  className='taches-item-logo' alt='edit-icon' onClick={toggleModal}/>
+		<div className='add-tache-div' >
+            <img src={addIcon}  className='add-tache-icon' alt='edit-icon' onClick={toggleModal}/>
             <p>Ajouter une tâche</p>
 
 			<Modal

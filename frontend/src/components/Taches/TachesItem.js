@@ -29,7 +29,7 @@ function TachesItem({ id, name, etat }) {
                     <EditDelete queryType='edit' id={id} name={name} etat={etat} />
                 </Col>
                 <Col sm={1}>
-                    <EditDelete queryType='delete' id={id}  />
+                    <EditDelete queryType='delete' id={id} name={name} />
                 </Col>
             </Row>
 	)

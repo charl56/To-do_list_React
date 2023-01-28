@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // Components JS
 import TachesItem from './TachesItem';
-import TacheAjout from './AddTache';
+import AddTache from './AddTache';
 
 // Components css
 import Container from 'react-bootstrap/Container';
@@ -75,7 +75,7 @@ function Taches() {
                     )) }
 
                 <Row>
-                    <TacheAjout />
+                    <AddTache />
                 </Row>
 			</Container>
 		</div>
