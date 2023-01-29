@@ -1,12 +1,29 @@
 import '../../styles/SearchBar.css'
+import React from 'react';
 
-function SearchBar() {
 
+const SearchBar = ({ listTaches, setSearchResults }) => {
+
+	const handleSubmit = (e) => e.preventDefault() 
+
+	const handleSearchChange = (e) => {
+		// Si la barre de recherche est vide, renvoyer la liste de base
+		if(!e.target.value) return setSearchResults(listTaches)
+
+		// Trier la list si caractere dans barre de recherche == le nom ou l'etat de la tache
+		const resultsArray = 
+			listTaches.filter(tache => tache.name.includes(e.target.value))
+		||
+			listTaches.filter(tache => tache.state.include(e.target.value))
+
+		setSearchResults(resultsArray)
+	}
+  
 	return (
 		<div className='tdl-search-bar'>
-			<div className='tdl-search-bar-elem'>
-				<input className='tdl-search-bar-input' placeholder='Recherche' type="text" onChange={ (e) => console.log(e.target.value)} />
-			</div>
+			<form className="search tdl-search-bar-elem" onSubmit={handleSubmit}>
+		 		<input className='tdl-search-bar-input search_input' id="search" placeholder='Recherche' type="text"  onChange={handleSearchChange}/>
+			</form>
 		</div>
 	)
 }

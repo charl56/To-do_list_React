@@ -1,13 +1,12 @@
+// Css & bootstrap
 import '../../styles/TachesItem.css'
-import EditDelete from './EditDelete'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+// Component
+import EditDelete from './EditDelete'
 
 
-
-
-function TachesItem({ id, name, etat }) {
-
+function TachesItem({ id, name, etat, onClick }) {
     var etatClass = ""
 	switch (etat) {
 		case "A faire": etatClass = "to-do";break;
@@ -26,10 +25,10 @@ function TachesItem({ id, name, etat }) {
                     {etat}
                 </Col>
                 <Col sm={1} >
-                    <EditDelete queryType='edit' id={id} name={name} etat={etat} />
+                    <EditDelete queryType='edit' id={id} name={name} etat={etat}  onClick={() => console.log("editTacheItem")}/>
                 </Col>
                 <Col sm={1}>
-                    <EditDelete queryType='delete' id={id} name={name} />
+                    <EditDelete queryType='delete' id={id} name={name} onClick={onClick}/>
                 </Col>
             </Row>
 	)

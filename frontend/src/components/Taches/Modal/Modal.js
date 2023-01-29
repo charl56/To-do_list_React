@@ -1,40 +1,43 @@
-import '../styles/Modal.css'
+import '../../../styles/Modal.css'
 import axios from 'axios';
 import { useState, useRef } from 'react';
 
 function addTache(tache, state){
-  // Variables envoyées dans le back, pour ajouter BDD
-  var tacheName = tache.current.value
-  var tacheState = state
+    // Variables envoyées dans le back, pour ajouter BDD
+    var tacheName = tache.current.value
+    var tacheState = state
 
-  // Verification ??
-  const postData = { name: tacheName, state: tacheState };
-  axios.post('http://localhost:5001/AddTache', postData)
-      .then(res => {
-          console.log(res.data);
-      })
-      .catch(err => {
-          console.log(err);
-      });
+    // Verification ??
+
+    const postData = { name: tacheName, state: tacheState };
+    axios.post('http://localhost:5001/AddTache', postData)
+        .then(res => {
+            console.log(res.data);
+            // refresh list
+    })
+        .catch(err => {
+            console.log(err);
+    });
 }
 
 
 
 function editTache(tache, state, id){
-  // Variables envoyées dans le back, pour ajouter BDD
-  var tacheName = tache.current.value
-  var tacheState = state
+    // Variables envoyées dans le back, pour ajouter BDD
+    var tacheName = tache.current.value
+    var tacheState = state
 
-  // Verification ??
+    // Verification ??
 
-  const postData = { name: tacheName, state: tacheState, id: id };
-  axios.post('http://localhost:5001/EditTache', postData)
-      .then(res => {
-          console.log(res.data);
-      })
-      .catch(err => {
-          console.log(err);
-      });
+    const postData = { name: tacheName, state: tacheState, id: id };
+    axios.post('http://localhost:5001/EditTache', postData)
+        .then(res => {
+            console.log(res.data);
+            // refresh list
+        })
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 // Envoie l'id de la tâche au back, pour pouvoir la supprimer dans la BDD
@@ -44,6 +47,7 @@ function deleteTache(idTache) {
     axios.post('http://localhost:5001/DeleteTache', postData)
         .then(res => {
             console.log(res.data);
+            // refresh list
         })
         .catch(err => {
             console.log(err);
@@ -56,7 +60,7 @@ const Modal = ( props ) => {
     // Données affichage modal
     const {shouldShow, onClose, title = "", subtitle = "", type, id, name, etat} = props ;
     
-    // Variable input tache
+    // Variable input nom tache
     const inputTache = useRef(null);
     // Données radio button check pour ajouter tache
     const [stateRadioAdd, setstateRadioAdd] = useState('Fait');
@@ -80,7 +84,7 @@ const Modal = ( props ) => {
         onClose()
     }
 
-    // Lance la fonction pour editer la tache dans la BDD et fermer le modal
+    // Lance la fonction pour supprimer la tache dans la BDD et fermer le modal
     const deleteTacheClose = (id) =>{
         deleteTache(id)
         onClose()
@@ -150,11 +154,7 @@ const Modal = ( props ) => {
 
         default:      
             return "";
-
-	}
-
-
-  
+	}  
 }
 
  export default Modal

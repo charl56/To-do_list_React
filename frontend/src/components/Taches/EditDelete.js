@@ -3,21 +3,21 @@ import editIcon from '../../assets/edit.png'
 import deleteIcon from '../../assets/delete.png'
 // css
 import '../../styles/EditDelete.css'
-// Axios pour les requetes
-import React, { useState } from 'react';
 // Composant
-import Modal from '../../Modal/Modal'
+import Modal from './Modal/Modal'
+
+import React, { useState } from 'react';
 
 
 function EditDelete({ queryType, id, name, etat }) {
-	// Modal edit tache
+	// Ouvre/ferme modal edit tache
 	const [showModal, setShowModal] = useState(false);
 	const toggleModal = () => {
 		setShowModal(!showModal);
 	}
 
 
-    // Retourne un icon en fonction du type demandé
+    // Retourne un icon en fonction du type demandé, avec les props en conséquence au modal
 	const iconType =
     queryType === 'edit' ? (
 		<div>

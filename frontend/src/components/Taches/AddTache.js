@@ -1,15 +1,14 @@
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
+// Icon et css
 import addIcon from '../../assets/add.png'
 import '../../styles/AddTache.css'
+
 import React, { useState } from 'react';
-import Modal from '../../Modal/Modal'
+import Modal from './Modal/Modal'
 
 
 function TacheAjout() {
 
-	// Modal add tache
+	// Ovre/ferme modal ajout tache
 	const [showModal, setShowModal] = useState(false);
 	const toggleModal = () => {
 		setShowModal(!showModal);
