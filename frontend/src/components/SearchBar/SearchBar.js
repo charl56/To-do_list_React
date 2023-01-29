@@ -12,10 +12,12 @@ const SearchBar = ({ listTaches, setSearchResults }) => {
 
 		// Trier la list si caractere dans barre de recherche == le nom ou l'etat de la tache
 		const resultsArray = 
-			listTaches.filter(tache => tache.name.includes(e.target.value))
+			listTaches.filter(tache => tache.name.toLowerCase().includes(e.target.value.toLowerCase()))
 		||
-			listTaches.filter(tache => tache.state.include(e.target.value))
+			listTaches.filter(tache => tache.state.toLowerCase().include(e.target.value.toLowerCase()))
 
+
+			
 		setSearchResults(resultsArray)
 	}
   
