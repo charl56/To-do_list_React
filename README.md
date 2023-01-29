@@ -5,6 +5,7 @@
 Python 3.11.1
 pip 22.3.1 
 MariaDB 10.6.5
+Node 16.17.0
 npm 9.1.2
 yarn 1.22.19
 ```
