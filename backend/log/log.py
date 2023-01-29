@@ -21,9 +21,40 @@ def login_database():
         conn = mysql.connector.connect(
             host="localhost",
             user=username,
-            password=password
-            # database="apptaches"
+            password=password,
+            database="apptaches"
         )
         return conn
+    except ValueError:
+        print("Connexion issue : "+ ValueError)
+
+
+def first_login_database(): 
+    
+    try: 
+        print("config dotenv")
+
+        dotenv_path = join(dirname(__file__), '.env')
+        print(dotenv_path)
+        load_dotenv(dotenv_path)
+
+
+        username = os.environ.get("username-db")
+        password = os.environ.get("password-db")
+        print(username, password)
+
+   
+        conn = mysql.connector.connect(
+            host="localhost",
+            user=username,
+            password=password
+        )
+        
+        cursor = conn.cursor()
+
+        # Create db if not exist
+        cursor.execute("CREATE DATABASE IF NOT EXISTS apptaches;")
+        conn.commit()   
+
     except ValueError:
         print("Connexion issue : "+ ValueError)
