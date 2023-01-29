@@ -10,14 +10,10 @@ const SearchBar = ({ listTaches, setSearchResults }) => {
 		// Si la barre de recherche est vide, renvoyer la liste de base
 		if(!e.target.value) return setSearchResults(listTaches)
 
-		// Trier la list si caractere dans barre de recherche == le nom ou l'etat de la tache
+		// Trier la list si caractere dans barre de recherche == le nom + l'etat de la tache
 		const resultsArray = 
-			listTaches.filter(tache => tache.name.toLowerCase().includes(e.target.value.toLowerCase()))
-		||
-			listTaches.filter(tache => tache.state.toLowerCase().include(e.target.value.toLowerCase()))
+			listTaches.filter(tache => tache.name.toLowerCase().includes(e.target.value.toLowerCase()) + tache.etat.toLowerCase().includes(e.target.value.toLowerCase()))
 
-
-			
 		setSearchResults(resultsArray)
 	}
   
