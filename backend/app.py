@@ -24,6 +24,8 @@ def initDb():
         cursor.execute("CREATE TABLE IF NOT EXISTS tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));")
         conn.commit()  
 
+
+
         cursor.execute('''
             INSERT INTO tacheListes (name, state) VALUES
             ('Faire liste courses', 'Fait'),
