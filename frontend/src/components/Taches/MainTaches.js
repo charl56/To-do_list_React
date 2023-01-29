@@ -25,10 +25,11 @@ function Taches() {
     useEffect(() => {
         getList().then(data => {
             setListTaches(data)
-            console.log(data)
+            console.log("listTaches ::",data)
             return data
         }).then(data => {
             setsearchResults(data)
+            console.log("searchResults ::",searchResults)
         })
     }, []);
 

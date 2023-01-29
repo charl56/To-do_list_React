@@ -26,14 +26,14 @@ def initDb():
 
 
 
-        cursor.execute('''
-            INSERT INTO tacheListes (name, state) VALUES
-            ('Faire liste courses', 'Fait'),
-            ('Acheter les courses', 'En cours'),
-            ('Ranger courses', 'En retard'),
-            ('RDV', 'En retard');
-        ''')
-        conn.commit()    
+        # cursor.execute('''
+        #     INSERT INTO tacheListes (name, state) VALUES
+        #     ('Faire liste courses', 'Fait'),
+        #     ('Acheter les courses', 'En cours'),
+        #     ('Ranger courses', 'En retard'),
+        #     ('RDV', 'En retard');
+        # ''')
+        # conn.commit()    
 
 
         print("DB init ok")
