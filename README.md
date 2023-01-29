@@ -11,7 +11,7 @@ yarn 1.22.19
 
 
 
-## Pull and clone repository
+## Clone repository
 ```
 git clone https://github.com/charl56/To-do_list_React.git
 cd To-do_List_React

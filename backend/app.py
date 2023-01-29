@@ -20,14 +20,14 @@ def initDb():
         cursor = conn.cursor()
 
         requete_sql = '''
-        CREATE DATABASE IF NOT EXISTS apptaches;
-        USE apptaches;
-        CREATE TABLE IF NOT EXISTS tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));
-        INSERT INTO tacheListes (name, state) VALUES
-        ('Faire liste courses', 'Fait'),
-        ('Acheter les courses', 'En cours'),
-        ('Ranger courses', 'En retard'),
-        ('RDV', 'En retard');
+            CREATE DATABASE IF NOT EXISTS apptaches;
+            USE apptaches;
+            CREATE TABLE IF NOT EXISTS tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));
+            INSERT INTO tacheListes (name, state) VALUES
+            ('Faire liste courses', 'Fait'),
+            ('Acheter les courses', 'En cours'),
+            ('Ranger courses', 'En retard'),
+            ('RDV', 'En retard');
         '''
         cursor.execute(requete_sql)
         
