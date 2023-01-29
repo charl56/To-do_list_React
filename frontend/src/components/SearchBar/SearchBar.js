@@ -12,15 +12,19 @@ const SearchBar = ({ listTaches, setSearchResults }) => {
 
 		// Trier la list si caractere dans barre de recherche == le nom + l'etat de la tache
 		const resultsArray = 
-			listTaches.filter(tache => tache.name.toLowerCase().includes(e.target.value.toLowerCase()) + tache.etat.toLowerCase().includes(e.target.value.toLowerCase()))
+			listTaches.filter(tache => 
+				tache.name.toLowerCase().includes(e.target.value.toLowerCase())
+			+
+				tache.etat.toLowerCase().includes(e.target.value.toLowerCase())
+			)
 
 		setSearchResults(resultsArray)
 	}
   
 	return (
-		<div className='tdl-search-bar'>
-			<form className="search tdl-search-bar-elem" onSubmit={handleSubmit}>
-		 		<input className='tdl-search-bar-input search_input' id="search" placeholder='Recherche' type="text"  onChange={handleSearchChange}/>
+		<div className='search-bar'>
+			<form className="search-bar-elem" onSubmit={handleSubmit}>
+		 		<input className='search-bar-input' id="search" placeholder='Recherche' type="text"  onChange={handleSearchChange}/>
 			</form>
 		</div>
 	)

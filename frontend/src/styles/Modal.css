@@ -16,8 +16,14 @@
     cursor: default;
 }
 
+@media only screen and (max-width: 960px) {
+	.modal  {
+		width: 95% !important;
+	}
+}
 
-.name{
+
+.tache-name{
     background-color: whitesmoke;
     border-radius: 5px;
     padding: 5px;

@@ -3,6 +3,14 @@
     padding-top: 15px;
 }
 
+@media only screen and (max-width: 960px) {
+    .taches-item-col-1 .edit-icon .delete-icon{
+        /* width: 20% !important; */
+        background-color: red;
+    }
+}
+
+
 .taches-item-col-1{
     padding-left: 0 !important;
 }

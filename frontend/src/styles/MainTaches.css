@@ -1,4 +1,5 @@
-.tdl-taches{
+
+.taches{
 	background-color: white;
 	border-radius: 9px;
 	width: 40%;
@@ -8,6 +9,13 @@
     padding: 10px 50px 10px 50px;
 }
 
-.tdl-taches-list-title{
+@media only screen and (max-width: 960px) {
+	.taches  {
+		width: 90%;
+	}
+}
+
+
+.taches-list-title{
     border-bottom: solid 2px black;
 }

@@ -1,4 +1,4 @@
-import '../../styles/Taches.css'
+import '../../styles/MainTaches.css'
 import React, { useState, useEffect } from 'react';
 // Components JS
 import AddTache from './AddTache';
@@ -25,11 +25,9 @@ function Taches() {
     useEffect(() => {
         getList().then(data => {
             setListTaches(data)
-            console.log("listTaches ::",data)
             return data
         }).then(data => {
             setsearchResults(data)
-            console.log("searchResults ::",searchResults)
         })
     }, []);
 
@@ -37,16 +35,16 @@ function Taches() {
 	return (
 		<div className=''>
             <SearchBar listTaches={listTaches} setSearchResults={setsearchResults} />
-		    <div className='tdl-taches'>
+		    <div className='taches'>
 
-                <Container className='tdl-taches-list'>
+                <Container>
 
                     {/* Titre du tableau des tâches et états */}
-                    <Row className='tdl-taches-list-title'>
-                        <Col sm={5}>
+                    <Row className='taches-list-title'>
+                        <Col md ={5}>
                             <h5>Tâche</h5>
                         </Col>
-                        <Col sm={5}>
+                        <Col md ={5}>
                             <h5>Etat</h5>
                         </Col>
                     </Row>

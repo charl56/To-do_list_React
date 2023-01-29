@@ -1,14 +1,7 @@
-.tdl-banner {
+.banner {
 	color: black;
 	font-weight: bold;
 	text-align: center;
 	padding: 15px;
 	align-items: center;
-}
-
-
-
-.tdl-logo {
-	height: 45px;
-	width: 45px;
 }

@@ -141,7 +141,7 @@ const Modal = ( props ) => {
             ? 
                 <div className ="modal"> 
                     <span className ="title">{title}</span>
-                    <span className ="name">{name}</span>
+                    <span className ="tache-name">{name}</span>
 
 
                     <div className ="btns"> 

@@ -24,10 +24,10 @@ function TachesItem({ id, name, etat, onClick }) {
                 <Col className={`tache-item-etat ${etatClass}`} sm={5}  >
                     {etat}
                 </Col>
-                <Col sm={1} >
-                    <EditDelete queryType='edit' id={id} name={name} etat={etat}  onClick={() => console.log("editTacheItem")}/>
+                <Col sm={1} className="edit-icon" >
+                    <EditDelete queryType='edit' id={id} name={name} etat={etat}/>
                 </Col>
-                <Col sm={1}>
+                <Col sm={1} className="delete-icon">
                     <EditDelete queryType='delete' id={id} name={name} onClick={onClick}/>
                 </Col>
             </Row>
