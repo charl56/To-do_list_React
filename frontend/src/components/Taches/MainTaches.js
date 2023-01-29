@@ -41,10 +41,10 @@ function Taches() {
 
                     {/* Titre du tableau des tâches et états */}
                     <Row className='taches-list-title'>
-                        <Col md ={5}>
+                        <Col md ={5} sm={5} className="taches-tittle-col">
                             <h5>Tâche</h5>
                         </Col>
-                        <Col md ={5}>
+                        <Col md ={5} sm={5} className="taches-tittle-col" >
                             <h5>Etat</h5>
                         </Col>
                     </Row>
