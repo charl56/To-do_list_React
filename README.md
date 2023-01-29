@@ -28,14 +28,6 @@ rename file .env.example to .env
 set username and password value
 ```
 
-### `Create database`
-```
-Importer les créations, donnnées.. manuellement.
-Sinon pas possible de se connecter a la database apptaches si elle existe pas(backend/log.py)
-Tester connection sans (database="apptaches") log.login_database()
-```
-
-
 # Backend
 ### `Create venv`
 ```
