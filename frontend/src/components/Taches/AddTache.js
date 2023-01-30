@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import Modal from './Modal/Modal'
 
 
-function TacheAjout() {
+function TacheAjout({func}) {
 
 	// Ovre/ferme modal ajout tache
 	const [showModal, setShowModal] = useState(false);
@@ -26,6 +26,7 @@ function TacheAjout() {
 				title = {"Ajouter une tâche :"}
 				subtitle = {"Indiquer son état :"} 
 				type = {"addTache"}
+				func = {func}
 				/>
 		</div>
 	)

@@ -66,7 +66,9 @@ function Taches() {
 
                     {/* Boutton pour ajouter tâche */}
                     <Row>
-                        <AddTache />
+                        <AddTache
+                            func = {forceUpdate}
+                        />
                     </Row>
                 </Container>
             </div>
