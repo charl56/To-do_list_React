@@ -32,12 +32,8 @@ def login_database():
 def first_login_database(): 
     
     try: 
-        print("config dotenv")
-
         dotenv_path = join(dirname(__file__), '.env')
-        print(dotenv_path)
         load_dotenv(dotenv_path)
-
 
         username = os.environ.get("username-db")
         password = os.environ.get("password-db")
