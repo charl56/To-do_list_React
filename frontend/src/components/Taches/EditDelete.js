@@ -9,7 +9,7 @@ import Modal from './Modal/Modal'
 import React, { useState } from 'react';
 
 
-function EditDelete({ queryType, id, name, etat }) {
+function EditDelete({ queryType, id, name, etat, func }) {
 	// Ouvre/ferme modal edit tache
 	const [showModal, setShowModal] = useState(false);
 	const toggleModal = () => {
@@ -31,6 +31,7 @@ function EditDelete({ queryType, id, name, etat }) {
 					id = {id}
 					name = {name}
 					etat = {etat}
+					func = {func}
 				/>
 		</div>
 			
@@ -44,12 +45,14 @@ function EditDelete({ queryType, id, name, etat }) {
 					type = {"deleteTache"}
 					id = {id}
 					name = {name}
+					func = {func}
 				/>
 		</div>
 		)
 
 	return (
 		<div>
+			{/* <button onClick={func} >bbb</button> */}
 			{iconType}
 		</div>
 	)

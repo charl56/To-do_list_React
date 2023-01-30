@@ -2,7 +2,7 @@ import '../../../styles/Modal.css'
 import axios from 'axios';
 import { useState, useRef } from 'react';
 
-function addTache(tache, state){
+async function addTache(tache, state){
     // Variables envoyées dans le back, pour ajouter BDD
     var tacheName = tache.current.value
     var tacheState = state
@@ -10,10 +10,9 @@ function addTache(tache, state){
     // Verification ??
 
     const postData = { name: tacheName, state: tacheState };
-    axios.post('http://localhost:5001/AddTache', postData)
+    await axios.post('http://localhost:5001/AddTache', postData)
         .then(res => {
             console.log(res.data);
-            // refresh list
     })
         .catch(err => {
             console.log(err);
@@ -22,7 +21,7 @@ function addTache(tache, state){
 
 
 
-function editTache(tache, state, id){
+async function editTache(tache, state, id){
     // Variables envoyées dans le back, pour ajouter BDD
     var tacheName = tache.current.value
     var tacheState = state
@@ -30,10 +29,9 @@ function editTache(tache, state, id){
     // Verification ??
 
     const postData = { name: tacheName, state: tacheState, id: id };
-    axios.post('http://localhost:5001/EditTache', postData)
+    await axios.post('http://localhost:5001/EditTache', postData)
         .then(res => {
             console.log(res.data);
-            // refresh list
         })
         .catch(err => {
             console.log(err);
@@ -41,25 +39,22 @@ function editTache(tache, state, id){
 }
 
 // Envoie l'id de la tâche au back, pour pouvoir la supprimer dans la BDD
-function deleteTache(idTache) {
-    console.log(idTache)
+async function deleteTache(idTache) {
 	const postData = { id: idTache};
-    axios.post('http://localhost:5001/DeleteTache', postData)
+    await axios.post('http://localhost:5001/DeleteTache', postData)
         .then(res => {
             console.log(res.data);
-            // refresh list
         })
         .catch(err => {
             console.log(err);
         });
+    
 }
 
 
 
-const Modal = ( props ) => {
+function Modal ({shouldShow, onClose, title, subtitle, type, id, name, etat, func}) {
     // Données affichage modal
-    const {shouldShow, onClose, title = "", subtitle = "", type, id, name, etat} = props ;
-    
     // Variable input nom tache
     const inputTache = useRef(null);
     // Données radio button check pour ajouter tache
@@ -68,9 +63,13 @@ const Modal = ( props ) => {
       setstateRadioAdd(e.currentTarget.value) 
     }
     // Lance la fonction pour ajoute la tache a la BDD et fermer le modal
-    const addTacheClose = (inputTache, stateRadioAdd) =>{
-        addTache(inputTache, stateRadioAdd)
+    async function addTacheClose (inputTache, stateRadioAdd) {
+        // aw : pour attendre le retour
+        var aw = await addTache(inputTache, stateRadioAdd)
         onClose()
+        // error : "func not a function", alors que dans une autre fonction : testRefresh
+        // La fonction func refresh bien la liste
+        func()
     }
 
     // Données radio button check pour modifier tache
@@ -79,17 +78,29 @@ const Modal = ( props ) => {
       setStateRadioEdit(e.currentTarget.value) 
     }
     // Lance la fonction pour editer la tache dans la BDD et fermer le modal
-    const editTacheClose = (inputTache, stateRadioEdit, id) =>{
-        editTache(inputTache, stateRadioEdit, id)
+    async function editTacheClose (inputTache, stateRadioEdit, id){
+        // aw : pour attendre le retour
+        var aw = await editTache(inputTache, stateRadioEdit, id)
         onClose()
+        // error : "func not a function", alors que dans une autre fonction : testRefresh
+        // La fonction func refresh bien la liste
+        func()
     }
 
     // Lance la fonction pour supprimer la tache dans la BDD et fermer le modal
-    const deleteTacheClose = (id) =>{
-        deleteTache(id)
+    async function deleteTacheClose (id){
+        // aw : pour attendre le retour
+        var aw = await deleteTache(id)
         onClose()
-    }
+        // error : "func not a function", alors que dans une autre fonction : testRefresh
+        // La fonction func refresh bien la liste
+        func()
+    }        
     
+    async function testRefresh () {
+        await console.log("test refresh")
+        func()
+    }
     
 
     
@@ -122,6 +133,8 @@ const Modal = ( props ) => {
                   <span className ="title">{title}</span> 
                   <input className='tacheName' placeholder={name} defaultValue={name} type="text" ref={inputTache} />
                   <span className ="subtitle">{subtitle}</span> 
+                  {/* <button onClick={func} >bbb</button> */}
+                  <button onClick={testRefresh} >testRefresh</button>
                   <div>
                       <input type="radio" value="Fait" name="state" checked={stateRadioEdit === 'Fait'} onChange={onChangeRadioEdit} /> Fait
                       <input type="radio" value="En cours" name="state" checked={stateRadioEdit === 'En cours'} onChange={onChangeRadioEdit} /> En cours

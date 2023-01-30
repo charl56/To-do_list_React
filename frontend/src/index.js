@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './components/App';
+// Css bootstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// font montserrat
+import "@fontsource/montserrat";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

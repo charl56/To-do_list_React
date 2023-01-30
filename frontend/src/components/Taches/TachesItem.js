@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import EditDelete from './EditDelete'
 
 
-function TachesItem({ id, name, etat, onClick }) {
+function TachesItem({ id, name, etat, func }) {
     var etatClass = ""
 	switch (etat) {
 		case "A faire": etatClass = "to-do";break;
@@ -25,10 +25,10 @@ function TachesItem({ id, name, etat, onClick }) {
                     {etat}
                 </Col>
                 <Col md={1} sm={1} className="taches-item-col edit-col" >
-                    <EditDelete queryType='edit' id={id} name={name} etat={etat}/>
+                    <EditDelete queryType='edit' id={id} name={name} etat={etat} func={func}/>
                 </Col>
                 <Col md={1} sm={1} className="taches-item-col delete-col">
-                    <EditDelete queryType='delete' id={id} name={name} onClick={onClick}/>
+                    <EditDelete queryType='delete' id={id} name={name} func={func}/>
                 </Col>
             </Row>
 	)

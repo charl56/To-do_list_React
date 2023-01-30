@@ -1,5 +1,5 @@
 import '../../styles/MainTaches.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 // Components JS
 import AddTache from './AddTache';
 import SearchBar from '../SearchBar/SearchBar';
@@ -21,6 +21,7 @@ function Taches() {
     const [listTaches, setListTaches] = useState([]);
     const [searchResults, setsearchResults] = useState([]);
 
+    const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
 
     useEffect(() => {
         getList().then(data => {
@@ -29,14 +30,13 @@ function Taches() {
         }).then(data => {
             setsearchResults(data)
         })
-    }, []);
+    }, [reducerValue]);
 
 
 	return (
 		<div className=''>
             <SearchBar listTaches={listTaches} setSearchResults={setsearchResults} />
 		    <div className='taches'>
-
                 <Container>
 
                     {/* Titre du tableau des tâches et états */}
@@ -58,6 +58,7 @@ function Taches() {
                                 id = {taches.id}
                                 name = {taches.name}
                                 etat = {taches.etat}
+                                func = {forceUpdate}
                             />
                             ))}
                     </div>
