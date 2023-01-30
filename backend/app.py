@@ -24,14 +24,23 @@ def initDb():
         cursor.execute("CREATE TABLE IF NOT EXISTS tacheListes (idUnique INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), state VARCHAR(25));")
         conn.commit()  
 
-        cursor.execute('''
-            INSERT INTO tacheListes (name, state) VALUES
-            ('Faire liste courses', 'Fait'),
-            ('Acheter les courses', 'En cours'),
-            ('Ranger courses', 'En retard'),
-            ('RDV', 'En retard');
-        ''')
-        conn.commit()    
+        ## Chech si il y a déjà des tâches
+        requete_sql = "SELECT * FROM tacheListes;"
+        cursor.execute(requete_sql)
+        # Transforme les données reçu en tableau
+        data = cursor.fetchall() 
+        if(data == []):
+            cursor.execute('''
+                INSERT INTO tacheListes (name, state) VALUES
+                ('1ère tâche', 'Fait'),
+                ('2ème tâche', 'En cours'),
+                ('3ème tâche', 'En retard'),
+                ('4ème tâche', 'En retard');
+            ''')
+            conn.commit()    
+
+
+
 
     except Exception as e:
         print("error first login: ", str(e))

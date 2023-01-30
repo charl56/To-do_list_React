@@ -13,9 +13,11 @@ async function addTache(tache, state){
     await axios.post('http://localhost:5001/AddTache', postData)
         .then(res => {
             console.log(res.data);
+            return true
     })
         .catch(err => {
             console.log(err);
+            return false
     });
 }
 
@@ -64,12 +66,16 @@ function Modal ({shouldShow, onClose, title, subtitle, type, id, name, etat, fun
     }
     // Lance la fonction pour ajoute la tache a la BDD et fermer le modal
     async function addTacheClose (inputTache, stateRadioAdd) {
-        // aw : pour attendre le retour
-        var aw = await addTache(inputTache, stateRadioAdd)
-        onClose()
-        // error : "func not a function", alors que dans une autre fonction : testRefresh
-        // La fonction func refresh bien la liste
-        func()
+        console.log("inputTache ::",inputTache.current.value)
+        if(inputTache.current.value !== ""){
+            // aw : pour attendre le retour
+            var aw = await addTache(inputTache, stateRadioAdd)
+            onClose()
+            func()
+        }
+        else{   
+            alert("Le nom de a tâche ne doit pas être vide")
+        }
     }
 
     // Données radio button check pour modifier tache
@@ -79,12 +85,15 @@ function Modal ({shouldShow, onClose, title, subtitle, type, id, name, etat, fun
     }
     // Lance la fonction pour editer la tache dans la BDD et fermer le modal
     async function editTacheClose (inputTache, stateRadioEdit, id){
-        // aw : pour attendre le retour
-        var aw = await editTache(inputTache, stateRadioEdit, id)
-        onClose()
-        // error : "func not a function", alors que dans une autre fonction : testRefresh
-        // La fonction func refresh bien la liste
-        func()
+        if(inputTache.current.value !== ""){
+            // aw : pour attendre le retour
+            var aw = await editTache(inputTache, stateRadioEdit, id)
+            onClose()
+            func()
+        }
+        else{   
+            alert("Le nom de a tâche ne doit pas être vide")
+        }
     }
 
     // Lance la fonction pour supprimer la tache dans la BDD et fermer le modal
@@ -92,17 +101,9 @@ function Modal ({shouldShow, onClose, title, subtitle, type, id, name, etat, fun
         // aw : pour attendre le retour
         var aw = await deleteTache(id)
         onClose()
-        // error : "func not a function", alors que dans une autre fonction : testRefresh
-        // La fonction func refresh bien la liste
         func()
     }        
     
-    async function testRefresh () {
-        await console.log("test refresh")
-        func()
-    }
-    
-
     
     switch (type) {
         case "addTache": 
@@ -133,8 +134,6 @@ function Modal ({shouldShow, onClose, title, subtitle, type, id, name, etat, fun
                   <span className ="title">{title}</span> 
                   <input className='tacheName' placeholder={name} defaultValue={name} type="text" ref={inputTache} />
                   <span className ="subtitle">{subtitle}</span> 
-                  {/* <button onClick={func} >bbb</button> */}
-                  <button onClick={testRefresh} >testRefresh</button>
                   <div>
                       <input type="radio" value="Fait" name="state" checked={stateRadioEdit === 'Fait'} onChange={onChangeRadioEdit} /> Fait
                       <input type="radio" value="En cours" name="state" checked={stateRadioEdit === 'En cours'} onChange={onChangeRadioEdit} /> En cours

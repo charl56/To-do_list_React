@@ -20,9 +20,10 @@ function Taches() {
     // Variable et fonction pour set la variable
     const [listTaches, setListTaches] = useState([]);
     const [searchResults, setsearchResults] = useState([]);
-
+    
     const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
 
+    // Fonction qui ajoute les données à la variable "listTaches"
     useEffect(() => {
         getList().then(data => {
             setListTaches(data)

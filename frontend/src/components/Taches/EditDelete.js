@@ -52,7 +52,6 @@ function EditDelete({ queryType, id, name, etat, func }) {
 
 	return (
 		<div>
-			{/* <button onClick={func} >bbb</button> */}
 			{iconType}
 		</div>
 	)

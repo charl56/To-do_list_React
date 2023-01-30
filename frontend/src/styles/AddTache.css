@@ -4,11 +4,8 @@
     align-content: left;
     display: flex;
     width: auto;
-    /* position: absolute; */
     flex-direction: row;
-    /* justify-content: left; */
     align-items: flex-start;
-    /* display: flex !important; */
 
 }.add-tache-div:hover{
     cursor: default;

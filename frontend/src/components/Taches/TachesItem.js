@@ -7,6 +7,7 @@ import EditDelete from './EditDelete'
 
 
 function TachesItem({ id, name, etat, func }) {
+    // Class pour la couleur de l'état d'une tâche
     var etatClass = ""
 	switch (etat) {
 		case "A faire": etatClass = "to-do";break;
@@ -36,36 +37,3 @@ function TachesItem({ id, name, etat, func }) {
 
 
 export default TachesItem
-
-
-// const TachesItem = props => {
-
-//     var etatClass = ""
-// 	switch (props.etat) {
-// 		case "A faire": etatClass = "to-do";break;
-// 		case "En cours": etatClass = "ongoing";break;
-// 		case "Fait": etatClass = "done";break;
-// 		case "En retard": etatClass = "late";break;
-// 		default:      return "";
-// 	}
-
-// 	return (
-//             <Row className='taches-item-row' key={props.id}>
-//                 <Col className='taches-item-col-1' sm={5}>
-//                     {props.name}
-//                 </Col>
-//                 <Col className={`tache-item-etat ${etatClass}`} sm={5}  >
-//                     {props.etat}
-//                 </Col>
-//                 <Col sm={1} >
-//                     <EditDelete queryType='edit' id={props.id} />
-//                 </Col>
-//                 <Col sm={1}>
-//                     <EditDelete queryType='delete' id={props.id} onClick={console.log("click")} />
-//                 </Col>
-//             </Row>
-// 	)
-// }
-
-
-// export default TachesItem
